@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">  
+    <link rel="icon" type="image/x-icon" href="https://openlayers.org/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pelaporan Alih Fungsi Lahan</title>
+  </head>
+  <body>
+    <div id="content">
+      <!-- Judul dari sini -->
+      <div id="head">
+        <h1 class="title">Pelaporan Alih Fungsi Lahan Pertanian Sleman Barat</h1>
+      </div>
+      <div class="section">
+        <p class="description text-indent">Aplikasi ini merupakan sarana bagi masyarakat untuk berpartisipasi aktif melakukan pengendalian alih fungsi lahan dari pertanian ke non-pertanian.</p>
+        <p class="description text-indent">Informasi yang dikumpulkan akan menjadi masukan bagi instansi terkait dalam rangka mengambil kebijakan mengenai pemanfaatan ruang di wilayah Kabupaten Sleman.</p>
+      </div>
+      <!-- Jenis Perubahan Lahan -->
+    <form id="form1">
+      <div class="section">
+          <h2 class="attribute">Bentuk Perubahan Lahan yang Terjadi</h2>
+          <p class="description">Silahkan pilih jenis perubahan yang terjadi pada lokasi lahan pertanian:</p>
+          <input type="radio" id="radioInput1" class="radio" name="alihFungsi1" value="Pertanian menjadi Bangunan">
+          <div class="radio">
+            <label class="radiolabel" for="radioInput1">Pertanian menjadi Bangunan</label>
+          </div>
+          <input type="radio" id="radioInput2" class="radio" name="alihFungsi1" value="Pertanian ditimbun pondasi">
+          <div class="radio">
+            <label class="radiolabel" for="radioInput2">Pertanian ditimbun pondasi</label>
+          </div>
+          <input type="radio" id="radioInput3" class="radio" name="alihFungsi1" value="Lainnya sebutkan...">
+          <div class="radio">
+            <label class="radiolabel" for="radioInput3">Lainnya sebutkan...</label>
+          </div>
+          <input class="input inputText" type="text" name="texAlihFungsi1" id="textRadio" placeholder="tuliskan bentuk perbuahan lahan" style="display: none" disabled>
+          <p class="errorText" id="errorRadio"></p>
+      </div>
+      <!-- Peta -->
+      <div class="section">
+        <h2 class="attribute">Koordinat Lokasi Lahan yang Beralihfungsi</h2>
+        <p class="description">Klik pada peta di mana lokasi terjadinya alih fungsi lahan pertanian. (Nyalakan <i>"GPS Location"</i> pada gadget/hp Saudara)</p>
+        <p class="description">Keterangan warna pada Peta Referensi:</p>
+        <ol class="description">
+          <li>Hijau Tua (Sawah di Pola Ruang Pertanian LP2B)</li>
+          <li>Hijau (Sawah di Pola Ruang Pertanian Non LP2B)</li>
+          <li>Hijau Muda (Sawah di Pola Ruang Non Pertanian)</li>
+          <li>Kuning (Non Sawah di Pola Ruang Pertanian LP2B)</li>
+          <li>Orange (Non Sawah di Pola Ruang Pertanian Non LP2B)</li>
+          <li>Merah (Non Sawah di Pola Ruang Non Pertanian)</li>
+        </ol>
+        <div class="map-container" id="mapContainer">
+          <!-- <h1 class="attribute">Peta Pola Ruang</h1> -->
+          <p class="description">Peta Pola Ruang</p>
+          <div id="map"></div>
+          <p id="coord" class="lat-long">Koordinat&emsp;Lat: &emsp; Lon: </p>
+        </div>
+        <p class="errorText" id="errorMap"></p>
+          <!-- <input type="text" id="jenisAlihFungsi" class="input hidden" name="alihFungsi" > -->
+          <!-- <input type="text" id="linnyaAlihFungsi" class="input hidden" name="ketLainnya" > -->
+          <input type="text" id="status" class="input hidden" name="status" >
+          <input type="text" id="koordinat" class="input hidden" placeholder="Koordinat anda" size="45" name="geom">
+      </div> 
+      <div class="section">
+        <h2 class="attribute">Foto Lahan yang Mengalami Alih Fungsi</h2>
+        <p class="description">Silahkan masukan foto yang menampilkan perubahan yang terjadi pada lahan pertanian tersebut. Silahkan masukkan foto minimal 1 dan maksimal 3 foto.</p>
+        <div class="boxphoto">
+          <label class="labelFile" for="foto">Pilih file foto.</label>
+          <div class="photoContainer">
+            <div class="preview">
+              <img src="" alt="">
+            </div>
+          </div>
+          <input class="file" type="file" name="fileFoto" id="foto" accept="image/*" multiple max-upload = 3 capture="enviroment">
+        </div>
+      </div>
+      <div class="section">
+        <h2 class="attribute">Keterangan Tambahan</h2>
+        <label class="keterangan" for="keterangan">Silahkan isi jika terdapat informasi lain yang ingin disampaikan.</label>
+        <textarea name="ketTambahan" id="keterangan" cols="40" rows="10" wrap="hard" placeholder="Tempat menuliskan informasi tambahan... " ></textarea>
+      </div>   
+      <div class="section">
+        <h2 class="attribute">Indetitas Informan</h2>
+        <p class="description">Identitas Anda digunakan untuk melengkapi laporan, dan Anda hanya akan dihubungi jika ada hal yang perlu dikonfirmasi atau ditidaklanjuti. Anda dapat langsung mengirim laporan jika tidak berkenana mengisi identitas informan.</p>
+        <div class="section-checkbox">
+          <h1 class="attribute checkbox">Apakah Anda bersedia mengisi idensitas?</h1>
+          <p class="onoff"><input type="checkbox" value="1" id="checkboxID"><label for="checkboxID"></label></p>
+        </div>
+      </div>
+      <div class="section section-identitas" style="display: none">
+        <label class="keterangan" for="nama">Nama informan</label>
+        <input class="input" type="text" name="namaInfroman" id="nama" placeholder="Nama Anda..." disabled>
+        <label class="keterangan" for="noHp">Nomor yang dapat dihubungi</label>
+        <input class="input" type="tel" name="noHp" id="noHp" pattern="^(\+62|62|0)8[1-9][0-9]{6,9}$" placeholder="08xxxxxxx" disabled>
+        <label class="keterangan" for="alamat">Alamat Anda:</label>
+        <input class="input" type="text" name="alamatInformat" id="alamat" placeholder="Kalurahan, Dusun" disabled>
+        <br><br>
+      </div>
+      <div class="section">
+        <input class="submit" type="submit">
+      </div>
+    </form>
+    </div>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
