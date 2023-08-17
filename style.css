@@ -135,7 +135,6 @@ li{
 
 .map-container{
   box-sizing: border-box;
-  /* position: relative; */
   display: flex;
   flex-direction: column;
   background-color: whitesmoke;
@@ -156,10 +155,12 @@ li{
   margin: 0px;
 }
 
-.map-container .lat-long{
+.map-container .coordinate{
   padding: 5px 0px;
-  position: relative;
-  align-items: center;
+  width: 100%;
+  margin: auto;
+  display: inline-flex;
+  text-align: center;
 }
 
 .input.hidden{
@@ -167,7 +168,39 @@ li{
 }
 
 input.file{
-  
+  display: none;
+}
+
+.photoContainer{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  box-sizing: border-box;
+  margin: auto;
+  margin-bottom: 10px;
+  padding-right: 10px;
+  border: 1px dashed dimgray;
+}
+
+.preview{
+  gap: 20px;
+  display: inline-flex;
+  font-size: 1.12em;
+  position: relative;
+  align-items: center;
+  width: 100%;
+  height: 70px;
+}
+
+.preview img{
+  max-height: 100%;
+}
+
+.preview .photoSize{
+  margin-left: auto;
 }
 
 label.labelFile{
@@ -186,7 +219,6 @@ label.labelFile{
   height: 40px;
   border-radius: 3px;
   border: 1px dashed whitesmoke;
-  border-style: dashed;
 }
 
 .boxphoto:hover{
@@ -265,7 +297,20 @@ textarea{
   color: red;
 }
 
+.footer{
+  display: flex;
+  font-size: 1.15em;
+  gap: 15px;
+  background-color: rgb(59, 58, 58);
+  justify-content: center;
+  align-items: center;
+  color: whitesmoke;
+  height: 60px;
+}
 
+.footer img{
+  width: 30px;
+}
 
 
 

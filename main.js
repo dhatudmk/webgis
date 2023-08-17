@@ -388,6 +388,7 @@ const checkBox = document.getElementById('checkboxID');
 const radioErrorBorder = document.querySelectorAll('div.radio');
 const radioErrorText = document.getElementById("errorRadio");
 const mapErrorText = document.getElementById("errorMap");
+const photoErrorText = document.getElementById('errorPhoto');
 const peta = document.getElementById("mapContainer");
 
 let radio2 = radioOption[2];
@@ -504,6 +505,7 @@ form.addEventListener('submit', (e) => {
   }
   if (!foto.value) {
     e.preventDefault();
+    photoErrorText.innerHTML = '* Lengkapi form dengan foto lahan '
   }
 });
 
