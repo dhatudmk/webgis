@@ -156,28 +156,71 @@ function bytesToSize(bytes) {
   return `${(bytes / (1024 ** i)).toFixed(1)} ${sizes[i]}`
 }
 
+const parentElement = document.getElementById('photoContainer');
+
+for(let i = 0; i < 3; i++){
+	let node = document.createElement('div');
+	node.classList.add('preview');
+	node.innerHTML =`<img class="imagePreview" src="">
+	<p class="photoName"></p>
+	<p class="photoSize"></p>
+	<i class="material-icons" style="font-size:23px; padding-right: 10px;">delete_forever</i>`
+	parentElement.appendChild(node);
+}
+
+
+// let c = abc[3].setAttribute('src', './data/logo-stpn');
+
+
+// console.log(document.querySelector('img'));
+// console.dir(document.querySelector('.photoName'));
+		
+// console.log(parentElement.querySelector('div.preview'));
+
 // foto.addEventListener('select', (evnt) => {})
 foto.addEventListener('change', (evnt) => {
   const imageFiles = evnt.target.files;
-  const parentElement = document.getElementById('photoContainer');
+  console.log('file image', imageFiles);
 
-  if (imageFiles.length > 3){
-    evnt.preventDefault();
+	let preview = parentElement.querySelectorAll('div.preview');
+	let image = parentElement.querySelectorAll('img');
+	let imageName = parentElement.querySelectorAll('p.photoName');
+	let imageSize = parentElement.querySelectorAll('p.photoSize');
+	let imageRemove = parentElement.querySelectorAll('i');
+	
+	for(let i = 0; i < 3; i++){
+		let size = bytesToSize(imageFiles[i].size); 
+		preview[i].style.display = 'inline-flex';
+		image[i].setAttribute('src', URL.createObjectURL(imageFiles[i]));
+		imageName[i].innerHTML = imageFiles[i].name
+		imageSize[i].innerHTML = size;
+		imageRemove[i].addEventListener('click', () =>{
+      let photo = document.getElementById('foto');
+      let file = Array.from(photo.files);
+      file.splice(1, 2);
+      console.log('ga tahu', file);
+      console.log('aslinya', imageFiles[i]);
+      console.log('luarnya', imageFiles);
+      
+      // imageFiles[i].remove;
+    })
+	}
+
+	if (imageFiles.length >= 3){
+		evnt.preventDefault();
     // parentElement.removeChild(node);
     document.getElementById('errorPhoto').innerHTML = '* Maksimal 3 file foto';
-  } else {
-    // parentElement.removeChild(node);
-    document.getElementById('errorPhoto').innerHTML = '';}
-    for(let i = 0; i < 3; i++){
-      let size = bytesToSize(imageFiles[i].size);
-      let node = document.createElement('div');
-      node.classList.add('preview');
-      node.innerHTML =`<img class="imagePreview" src="${URL.createObjectURL(imageFiles[i])}" id="photo1">
-      <p class="photoName">${imageFiles[i].name}</p>
-      <p class="photoSize">${size}</p>
-      <i class="material-icons" style="font-size:23px; padding-right: 10px;">delete_forever</i>`
-      parentElement.appendChild(node);
-    }
+		// document.querySelector('div.boxphoto').style.display = 'none'
+		// return;
+  } 
+	if (imageFiles.length <= 3) {
+    document.getElementById('errorPhoto').innerHTML = '';
+	}
+	// let photo = URL.createObjectURL(imageFiles[0]);
+	// console.log('abc ',abc[2]);
+	// ${URL.createObjectURL(imageFiles[i])}, ${imageFiles[i].name}, ${size}
+	
+	// console.log(document.querySelector('.photoContainer'));
 })
 
 // foto.addEventListener('change', (evnt) => {
@@ -210,13 +253,3 @@ foto.addEventListener('change', (evnt) => {
 //   //   imagePreview.src = imageScr;
 //   // }
 // })
-
-// console.log(imagePreview);
-
-
-// let byte = 15276991;
-// let byte1 = 39117;
-
-
-// console.log(bytesToSize(byte));
-// console.log(bytesToSize(byte1));

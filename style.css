@@ -187,22 +187,28 @@ li{
   white-space: normal;
   border: 1px dashed dimgray;
   gap: 15px;
-  display: inline-flex;
+  /* display: inline-flex; */
   font-size: 1em;
   align-items: center;
   width: 100%;
   height: 60px;
   white-space: normal;
-  /* overflow: hidden; */
+  display: none;
+  cursor: pointer;
 }
 
 .preview img{
   max-height: 100%;
+  max-width: 50px;
 }
 
 .preview .photoSize{
   margin-left: auto;
   /* white-space: nowrap; */
+}
+
+.preview i:hover{
+  color: red;
 }
 
 label.labelFile{
