@@ -167,9 +167,9 @@ li{
   display: none;
 }
 
-/* input.file{
+input.file{
   display: none;
-} */
+}
 
 .photoContainer{
   display: flex;

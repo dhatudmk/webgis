@@ -180,7 +180,9 @@ for(let i = 0; i < 3; i++){
 // foto.addEventListener('select', (evnt) => {})
 foto.addEventListener('change', (evnt) => {
   const imageFiles = evnt.target.files;
-  console.log('file image', imageFiles);
+  document.querySelector('.boxphoto').classList.remove('errorBorder');
+  document.getElementById('errorPhoto').innerHTML = '';
+  // console.log('file image', imageFiles);
 
 	let preview = parentElement.querySelectorAll('div.preview');
 	let image = parentElement.querySelectorAll('img');
@@ -206,16 +208,21 @@ foto.addEventListener('change', (evnt) => {
     })
 	}
 
-	if (imageFiles.length >= 3){
+	if (imageFiles.length > 3){
 		evnt.preventDefault();
     // parentElement.removeChild(node);
-    document.getElementById('errorPhoto').innerHTML = '* Maksimal 3 file foto';
+    document.getElementById('errorPhoto').innerHTML = '* Hanya dapat melapirkan 3 file foto';
+    document.getElementById('errorPhoto').style.color = 'black';
 		// document.querySelector('div.boxphoto').style.display = 'none'
 		// return;
   } 
-	if (imageFiles.length <= 3) {
-    document.getElementById('errorPhoto').innerHTML = '';
-	}
+	// if (imageFiles.length < 3) {
+  //   document.getElementById('errorPhoto').innerHTML = '* apa aja deh';
+	// }
+  
+  // if () {
+  //   document.querySelector('.boxphoto').classList.remove('errorBorder');
+  // }
 	// let photo = URL.createObjectURL(imageFiles[0]);
 	// console.log('abc ',abc[2]);
 	// ${URL.createObjectURL(imageFiles[i])}, ${imageFiles[i].name}, ${size}
