@@ -167,9 +167,9 @@ li{
   display: none;
 }
 
-input.file{
+/* input.file{
   display: none;
-}
+} */
 
 .photoContainer{
   display: flex;
@@ -178,21 +178,22 @@ input.file{
   align-items: center;
   justify-content: center;
   width: 90%;
-  box-sizing: border-box;
   margin: auto;
   margin-bottom: 10px;
-  padding-right: 10px;
-  border: 1px dashed dimgray;
 }
 
 .preview{
-  gap: 20px;
+  box-sizing: border-box;
+  white-space: normal;
+  border: 1px dashed dimgray;
+  gap: 15px;
   display: inline-flex;
-  font-size: 1.12em;
-  position: relative;
+  font-size: 1em;
   align-items: center;
   width: 100%;
-  height: 70px;
+  height: 60px;
+  white-space: normal;
+  /* overflow: hidden; */
 }
 
 .preview img{
@@ -201,6 +202,7 @@ input.file{
 
 .preview .photoSize{
   margin-left: auto;
+  /* white-space: nowrap; */
 }
 
 label.labelFile{
@@ -223,6 +225,9 @@ label.labelFile{
 
 .boxphoto:hover{
   border: 1px dashed #07531c;
+}
+
+.boxphoto label{
   cursor: pointer;
 }
 

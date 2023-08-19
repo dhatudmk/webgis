@@ -69,19 +69,19 @@
       <div class="section">
         <h2 class="attribute">Foto Lahan yang Mengalami Alih Fungsi</h2>
         <p class="description">Silahkan masukan foto yang menampilkan perubahan yang terjadi pada lahan pertanian tersebut. Silahkan masukkan foto minimal 1 dan maksimal 3 foto.</p>
-        <div class="photoContainer">
-          <div class="preview">
-            <img src="./data/Sleman Barat v2.png" alt="">
-            <p class="photoName">Silahkan masukan foto yang menampilkan perubahan </p>
-            <p class="photoSize"> 45 Mb</p>
-            <i class="material-icons" style="font-size:23px">delete_forever</i>
-          </div>
+        <div class="photoContainer" id="photoContainer">
+          <!-- <div class="preview"> -->
+            <!-- <img class="imagePreview" src="./data/Sleman Barat v2.png" id="photo1"> -->
+            <!-- <p class="photoName">Silahkan masukan foto yang menampilkan perubahan </p> -->
+            <!-- <p class="photoSize"> 45 Mb</p> -->
+            <!-- <i class="material-icons" style="font-size:23px; padding-right: 10px;">delete_forever</i> -->
+          <!-- </div> -->
         </div>
         <div class="boxphoto">
           <label class="labelFile" for="foto">Pilih file foto.</label>
         </div>
-        <p class="errorText" id="errorPhoto"></p>
         <input class="file" type="file" name="fileFoto" id="foto" accept="image/*" multiple max-upload = 3 capture="enviroment">
+        <p class="errorText" id="errorPhoto"></p>
       </div>
       <div class="section">
         <h2 class="attribute">Keterangan Tambahan</h2>
@@ -115,6 +115,7 @@
       <p>Dibuat oleh: Peneliti Sekolah Tinggi Pertanahan Nasional 2023</p>
     </div>
     </div>
+    <script src="dom.js"></script>
     <script type="module" src="./main.js"></script>
   </body>
 </html>
