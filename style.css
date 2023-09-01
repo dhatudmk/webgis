@@ -4,6 +4,7 @@
 *{
   margin: 0;
   padding: 0;
+  scroll-margin-top: 50px;
 }
 
 body{
@@ -32,6 +33,8 @@ body{
   padding: 0px 15px;
   margin: auto;
 } */
+
+
 
 .title{
   font-size: 1.38rem;
@@ -66,6 +69,31 @@ body{
   margin: auto;
   padding-bottom: 0.5em;
 }
+
+.warning{
+  display: none;
+  background-color: #c9462b;
+  /* opacity: 50%; */
+  padding: 5px 0px;
+  box-sizing: border-box;
+  position: sticky;
+  /* position: fixed; */
+  /* overflow: hidden; */
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.text-warning{
+  text-align: center;
+  color: whitesmoke;
+  align-items: center;
+  padding-bottom: 0px;
+}
+
+/* .pddng-top{
+  padding-top: 60px;
+} */
 
 .text-indent{
   text-indent: 50px;
@@ -163,9 +191,9 @@ li{
   text-align: center;
 }
 
-.input.hidden{
+/* .input.hidden{
   display: none;
-}
+} */
 
 input.file{
   display: none;

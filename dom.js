@@ -2,6 +2,7 @@ console.log('Hello uthad!');
 // *****************************************************************************************
 // DOM Buatan sendiri
 // *****************************************************************************************
+import {validation} from './objValidation';
 
 const form = document.getElementById("form1");
 const radioOption = document.querySelectorAll('input[type="radio"]');
@@ -15,16 +16,22 @@ const mapErrorText = document.getElementById("errorMap");
 const photoErrorText = document.getElementById('errorPhoto');
 const peta = document.getElementById("mapContainer");
 const foto = document.getElementById("foto");
+const warning = document.getElementById("warning");
+
+console.log(validation);
+
 
 let radio2 = radioOption[2];
 
 radioOption.forEach(radioOption =>{
     radioOption.addEventListener('change', () => {
     // console.log(textRadio)
+    validation.radio = 0;
     if(radio2.checked){
         textRadio.style.display='block';
         textRadio.disabled = false;
         textRadio.focus();
+        validation.textRadio = 1;
         radioErrorBorder.forEach(b => {
             b.classList.remove('errorBorder');
         })
@@ -44,6 +51,7 @@ radioOption.forEach(radioOption =>{
 textRadio.addEventListener('input', () => {
     textRadio.classList.remove('errorBorder');
     document.getElementById("errorRadio").innerHTML = "";
+    validation.textRadio = 0;
 })
 
 // for(let i = 0; i < radioOption.length; i++){
@@ -97,45 +105,65 @@ checkBox.addEventListener('click', () => {
 
 
 form.addEventListener('submit', (e) => {
-    let radio1 = document.getElementById("radioInput1");
-    let radio2 = document.getElementById("radioInput2");
-    let radio3 = document.getElementById("radioInput3");
-    let geom = document.getElementById("koordinat");
-    let foto = document.getElementById("foto");
+  let radio1 = document.getElementById("radioInput1");
+  let radio2 = document.getElementById("radioInput2");
+  let radio3 = document.getElementById("radioInput3");
+  let geom = document.getElementById("koordinat");
+  let foto = document.getElementById("foto");
+  let warning = document.getElementById("warning");
+  let section = document.getElementsByClassName('section');
 
-    if (!radio1.checked && !radio2.checked && !radio3.checked){
-        e.preventDefault();
-        radioErrorText.innerHTML = '* Pilih bentuk perubahan lahan yang terjadi';
-        radioErrorBorder.forEach(b => {
-            b.classList.add('errorBorder');
-      // b.scrollIntoView(false);
-        })
-    // radio1.scrollIntoView(false);
-
-    }
-    if (radio3.checked && !textRadio.value) {
-        e.preventDefault();
-        radioErrorText.innerHTML = "* Tuliskan bentuk perubahan lahan yang terjadi";
-        textRadio.classList.add('errorBorder');
-        textRadio.focus();
-    // textRadio.scrollIntoView(false);
-    // console.log('bulan september');
-    } 
-
-    if (geom.value === "") {
-        e.preventDefault();
-        peta.classList.add("errorBorder");
-        // peta.scrollIntoView(true);
-        mapErrorText.innerHTML = "* Klik pada peta di lokasi terjadinya alih fungsi lahan";
-        // map.scrollIntoView();
-    }
-    if (!foto.value) {
-        e.preventDefault();
-        photoErrorText.innerHTML = '* Lengkapi form dengan foto lahan';
-        document.querySelector('.boxphoto').classList.add('errorBorder');
+  if (!foto.value) {
+    e.preventDefault();
+    warning.style.display = "block";
+    photoErrorText.innerHTML = '* Lengkapi form dengan foto lahan';
+    document.querySelector('.boxphoto').classList.add('errorBorder');
+    validation.foto = 1;
+    section[3].scrollIntoView(true);
+  }
+  if (geom.value === "") {
+    e.preventDefault();
+    warning.style.display = "block";
+    peta.classList.add("errorBorder");
+    mapErrorText.innerHTML = "* Klik pada peta di lokasi terjadinya alih fungsi lahan";
+    validation.peta = 1;
+    peta.scrollIntoView(true);
+  }
+  if (radio3.checked && !textRadio.value) {
+    e.preventDefault();
+    warning.style.display = "block";
+    radioErrorText.innerHTML = "* Tuliskan bentuk perubahan lahan yang terjadi";
+    textRadio.classList.add('errorBorder');
+    textRadio.focus();
+    validation.textRadio = 1;
+    section[1].scrollIntoView(true);
+  }
+  if (!radio1.checked && !radio2.checked && !radio3.checked){
+    e.preventDefault();
+    radioErrorText.innerHTML = '* Pilih bentuk perubahan lahan yang terjadi';
+    warning.style.display = "block";
+    validation.radio = 1;
+    section[1].scrollIntoView(true);
+    radioErrorBorder.forEach(b => {
+        b.classList.add('errorBorder');
+    })
   }
 });
 
+
+warning.addEventListener('click', () => {
+  let section = document.getElementsByClassName('section');
+  console.log(validation);
+  if(validation.foto === 1){section[3].scrollIntoView(true)};
+  if(validation.peta === 1){peta.scrollIntoView(true)};
+  if(validation.textRadio === 1){section[1].scrollIntoView(true)};
+  if(validation.radio === 1){section[1].scrollIntoView(true)};
+})
+
+function 
+
+// let section = document.getElementsByClassName('section');
+// console.log(section);
 // ********************************** nomor HP **************************************** //
 // let noHp = document.getElementById("noHP");
 // let noHpValidation = (nomor)=> {
@@ -180,6 +208,7 @@ for(let i = 0; i < 3; i++){
 // foto.addEventListener('select', (evnt) => {})
 foto.addEventListener('change', (evnt) => {
   const imageFiles = evnt.target.files;
+  validation.foto = 0;
   document.querySelector('.boxphoto').classList.remove('errorBorder');
   document.getElementById('errorPhoto').innerHTML = '';
   // console.log('file image', imageFiles);

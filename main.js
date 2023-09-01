@@ -22,8 +22,9 @@ import Control from 'ol/control/Control';
 import ZoomToExtent from 'ol/control/ZoomToExtent';
 import FullScreen from 'ol/control/FullScreen';
 import { scale } from 'ol/size';
+import {validation} from './objValidation';
 
-
+// console.log(validation);
 
 // Base map
 const baseMapsOSM = new TileLayer({
@@ -113,12 +114,14 @@ const pointReport = new Draw({
       let d = 'Koordinat '+'&emsp;'+'Lat: '+lat+'&emsp;'+'Lon: '+lon;
       let koordinat = document.getElementById("koordinat");
       let status = document.getElementById("status");
+      validation.peta = 0;
       // document.getElementById("longitude").innerHTML =c;
       document.getElementById("coord").innerHTML =d;
       koordinat.setAttribute('Value', lat+', '+lon);
       status.setAttribute('Value', b.get('Sawah_RDTR'));
       document.getElementById("mapContainer").classList.remove("errorBorder");
       document.getElementById("errorMap").innerHTML = "";
+      // if(koordinat.value !== null){validation.peta = 0;}
     return true;
     } else {
       return false;
