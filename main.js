@@ -130,11 +130,15 @@ const pointReport = new Draw({
       let d = 'Koordinat '+'&emsp;'+'Lat: '+lat+'&emsp;'+'Lon: '+lon;
       let koordinat = document.getElementById("koordinat");
       let status = document.getElementById("status");
+      let kel = document.getElementById('kel');
+      let kec = document.getElementById('kec');
       validation.peta = 0;
       // document.getElementById("longitude").innerHTML =c;
       document.getElementById("coord").innerHTML =d;
       koordinat.setAttribute('Value', lat+', '+lon);
       status.setAttribute('Value', b.get('PLRUANG'));
+      kel.setAttribute('value', b.get('WADMKD'))
+      kec.setAttribute('value', b.get('WADMKC'))
       document.getElementById("mapContainer").classList.remove("errorBorder");
       document.getElementById("errorMap").innerHTML = "";
       // if(koordinat.value !== null){validation.peta = 0;}

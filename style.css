@@ -191,9 +191,9 @@ li{
   text-align: center;
 }
 
-/* .input.hidden{
+.input.hidden{
   display: none;
-} */
+}
 
 input.file{
   display: none;
@@ -365,7 +365,7 @@ textarea{
   text-align: center;
   vertical-align: middle;
   gap: 10px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   /* *vertical-align: auto; */
 } 
 
