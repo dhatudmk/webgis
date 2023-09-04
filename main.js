@@ -45,18 +45,34 @@ const vectorStyle = new Style({
 const vectorSource = new VectorSource({
   maxZoom: 10,
   format: new GeoJSON(),
-  url: './data/sayegan.geojson',
+  // url: './data/sayegan.geojson',
+  url: './data/rdtrSayegan.geojson',
 });
+
+// console.log(vectorSource.getFeatures);
+
+const styleAttribute = {
+  'Kawasan Non Pertanian': 'rgba(255, 255, 0, 0.5)',
+  'Kawasan Pertanian dan Bukan Lahan Pertanian Pangan Berkelanjutan': 'rgba(74, 144, 226, 0.5)',
+  'Kawasan Pertanian dan Lahan Pertanian Pangan Berkelanjutan': 'rgba(56, 140, 0, 0.5)',
+}
+
+console.log(styleAttribute['Kawasan Non Pertanian']);
+
+const styleChace = {}
 
 const vectorLayer = new VectorLayerImage({
   source: vectorSource,
   style: 
+  // vectorStyle,
     function (feature) {
     const fillColor = feature.get("Color");
     vectorStyle.getFill().setColor(fillColor);
     return vectorStyle;
   },
 });
+
+// console.log('vectorLayer', vectorLayer.feature[0].get('PLRUANG'))
 
 const view = new View({
   center: //vectorSource.getExtent(),
@@ -118,10 +134,14 @@ const pointReport = new Draw({
       // document.getElementById("longitude").innerHTML =c;
       document.getElementById("coord").innerHTML =d;
       koordinat.setAttribute('Value', lat+', '+lon);
-      status.setAttribute('Value', b.get('Sawah_RDTR'));
+      status.setAttribute('Value', b.get('PLRUANG'));
       document.getElementById("mapContainer").classList.remove("errorBorder");
       document.getElementById("errorMap").innerHTML = "";
       // if(koordinat.value !== null){validation.peta = 0;}
+      if(validation.radio === 0 &&
+        validation.textRadio === 0 &&
+        validation.peta === 0 &&
+        validation.foto === 0) {warning.style.display = 'none'}
     return true;
     } else {
       return false;
@@ -344,7 +364,7 @@ map.addControl(
   })
 ); 
 
-Function
+// Function
 document.getElementById('confirmation')
   .addEventListener('click', function (){
     map.removeInteraction(pointReport);

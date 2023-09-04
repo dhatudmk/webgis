@@ -357,23 +357,24 @@ textarea{
 
 .section-checkbox{
   display: flex;
+  /* width: 90%; */
   /* line-height: 30px; */
   /* margin: auto; */
   align-items: center;
   justify-content: center;
   text-align: center;
   vertical-align: middle;
+  gap: 10px;
+  border: 1px solid red;
   /* *vertical-align: auto; */
 } 
 
 .attribute.checkbox{
-  /* margin-bottom: 0em; */
-  /* border: 1px solid black; */
   display: inline;
   width: auto;
   position: relative;
-  padding-right: 20px;
   margin: 0px;
+  
 }
 
 
@@ -391,7 +392,7 @@ textarea{
     width: 80px;
     height: 30px;
     line-height: 30px;
-    font-size: 14px;
+    font-size: 0.9em;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -491,4 +492,8 @@ textarea{
 .changePoint{
   top: 7em;
   right: .5em;
+}
+
+@media (max-width: 600px){
+  #content {width: 100%; margin: 0px;}
 }

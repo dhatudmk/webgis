@@ -27,6 +27,10 @@ radioOption.forEach(radioOption =>{
     radioOption.addEventListener('change', () => {
     // console.log(textRadio)
     validation.radio = 0;
+    if(validation.radio === 0 &&
+      validation.textRadio === 0 &&
+      validation.peta === 0 &&
+      validation.foto === 0) {warning.style.display = 'none'}
     if(radio2.checked){
         textRadio.style.display='block';
         textRadio.disabled = false;
@@ -39,6 +43,8 @@ radioOption.forEach(radioOption =>{
     
     } else {
         textRadio.style.display='none';
+        // warning.style.display = 'none';
+        // if (validation.radio = 0){warning.style.display = 'none'};
         textRadio.disabled = true;
         radioErrorBorder.forEach(b => {
             b.classList.remove('errorBorder');
@@ -52,6 +58,10 @@ textRadio.addEventListener('input', () => {
     textRadio.classList.remove('errorBorder');
     document.getElementById("errorRadio").innerHTML = "";
     validation.textRadio = 0;
+    if(validation.radio === 0 &&
+      validation.textRadio === 0 &&
+      validation.peta === 0 &&
+      validation.foto === 0) {warning.style.display = 'none'}
 })
 
 // for(let i = 0; i < radioOption.length; i++){
@@ -160,7 +170,6 @@ warning.addEventListener('click', () => {
   if(validation.radio === 1){section[1].scrollIntoView(true)};
 })
 
-function 
 
 // let section = document.getElementsByClassName('section');
 // console.log(section);
@@ -218,6 +227,11 @@ foto.addEventListener('change', (evnt) => {
 	let imageName = parentElement.querySelectorAll('p.photoName');
 	let imageSize = parentElement.querySelectorAll('p.photoSize');
 	let imageRemove = parentElement.querySelectorAll('i');
+
+  if(validation.radio === 0 &&
+    validation.textRadio === 0 &&
+    validation.peta === 0 &&
+    validation.foto === 0) {warning.style.display = 'none'}
 	
 	for(let i = 0; i < 3; i++){
 		let size = bytesToSize(imageFiles[i].size); 
