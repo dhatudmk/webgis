@@ -1,4 +1,5 @@
 console.log('Hello uthad!');
+import { all, altKeyOnly } from 'ol/events/condition';
 // *****************************************************************************************
 // DOM Buatan sendiri
 // *****************************************************************************************
@@ -17,16 +18,44 @@ const photoErrorText = document.getElementById('errorPhoto');
 const peta = document.getElementById("mapContainer");
 const foto = document.getElementById("foto");
 const warning = document.getElementById("warning");
+const modalBox = document.getElementById('myModal');
 
 console.log(validation);
+// console.log(warning.offsetHeight)
+const warningHeigh = warning.offsetHeight;
+let tinggi = warningHeigh+50
+tinggi = tinggi+'px';
+// console.log('tinggi', tinggi);
+// console.log(window)
+let allElement = document.getElementsByTagName('*');
+for (let i = 0; i < allElement.length; i++) {
+  let element = allElement[i];
+  element.style.scrollMarginTop = tinggi;
+}
+
+// const search = document.getElementById('q');
+const search = document.getElementsByTagName("a")[2];
+search.addEventListener('click', () => {
+  console.log('apakah');
+  modalBox.style.display = 'block';
+  window.onclick = function(event) {
+    if(event.target == modalBox){
+      modalBox.style.display = 'none';
+    };
+  };
+});
+
+// document.querySelector('.close').addEventListener('click', () => {
+//   modalBox.style.display = 'none'
+// })
 
 
 let radio2 = radioOption[2];
 
 radioOption.forEach(radioOption =>{
     radioOption.addEventListener('change', () => {
-    // console.log(textRadio)
     validation.radio = 0;
+    document.getElementById('prbhn').setAttribute('value', radioOption.value);
     if(validation.radio === 0 &&
       validation.textRadio === 0 &&
       validation.peta === 0 &&
@@ -40,12 +69,10 @@ radioOption.forEach(radioOption =>{
             b.classList.remove('errorBorder');
         })
         radioErrorText.innerHTML = "";
-    
     } else {
         textRadio.style.display='none';
-        // warning.style.display = 'none';
-        // if (validation.radio = 0){warning.style.display = 'none'};
         textRadio.disabled = true;
+        document.getElementById('textPrbhn').disabled = true;
         radioErrorBorder.forEach(b => {
             b.classList.remove('errorBorder');
         })
@@ -58,6 +85,7 @@ textRadio.addEventListener('input', () => {
     textRadio.classList.remove('errorBorder');
     document.getElementById("errorRadio").innerHTML = "";
     validation.textRadio = 0;
+    document.getElementById('textPrbhn').setAttribute('value', textRadio.value);
     if(validation.radio === 0 &&
       validation.textRadio === 0 &&
       validation.peta === 0 &&

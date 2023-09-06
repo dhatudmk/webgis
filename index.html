@@ -9,11 +9,38 @@
     <title>Pelaporan Alih Fungsi Lahan</title>
   </head>
   <body>
+    <!-- Nav bar -->
+    <div class="navbar">
+      <a href="">Masuk</a>
+      <a href="">Dashboard</a>
+      <a id="q">Cari</a>
+    </div>
+    <!-- Isi HTML -->
+
+    <!-- Searching Modal Box  -->
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <!-- <span class="close">&times;</span> -->
+        <h2 class="attribute">Progres Pelaporan<span class="material-icons" style="font-size:1.5em;color:red;">close</span></h2>
+        <p class="description">Untuk mengetahui tindak lanjut pelaporan yang telah anda kirimkan sebelumnya, silahkan masukkan nama dan nomor yang sama ketika mengirimkan laporan</p>
+        <form id="formCari">
+          <label class="keterangan" for="pencarianNama">Nama pelapor</label>
+          <input type="text" id="pencarianNama" name="namaCari" class="input" style="margin-bottom: 15px;">
+          <label class="keterangan" for="pencarianNoHp">Nomor Handphone</label>
+          <input type="text" id="pencarianNoHp" name="noHpCari" class="input">
+          <input type="submit" class="submit">
+        </form>
+      </div>
+    
+    </div>
+
     <div id="content">
+      <!-- Warning untuk form -->
       <div id="warning" class="warning">
         <p class="description text-warning">Terdapat beberapa pertanyaan wajib yang belum terisi. <br> Tekan di sini untuk menbuka setiap pertanyaan</p>
       </div>
-      <!-- Warning untuk form -->
       <!-- Judul dari sini -->
       <div id="head">
         <h1 class="title">Pelaporan Alih Fungsi Lahan Pertanian Sleman Barat</h1>
@@ -23,7 +50,7 @@
         <p class="description text-indent">Informasi yang dikumpulkan akan menjadi masukan bagi instansi terkait dalam rangka mengambil kebijakan mengenai pemanfaatan ruang di wilayah Kabupaten Sleman.</p>
       </div>
       <!-- Jenis Perubahan Lahan -->
-    <form id="form1">
+    <!-- <form id="form1"> -->
       <div class="section">
           <h2 class="attribute">Bentuk Perubahan Lahan yang Terjadi</h2>
           <p class="description">Silahkan pilih jenis perubahan yang terjadi pada lokasi lahan pertanian:</p>
@@ -60,10 +87,13 @@
             <p id="coord" class="lat-long">Koordinat&emsp; Lat: &emsp; Lon: </p>
           </div>
         </div>
+        <form id="form1">
         <p class="errorText" id="errorMap"></p>
-          <input type="text" id="kel" class="input hidden" name="kel" >
-          <input type="text" id="kec" class="input hidden" name="kec" >
-          <input type="text" id="status" class="input hidden" name="status" >
+        <input type="text" id="prbhn" class="input hidden" name="perubahan" >
+        <input type="text" id="textPrbhn" class="input hidden" name="lainnya" >
+        <input type="text" id="kel" class="input hidden" name="kel" >
+        <input type="text" id="kec" class="input hidden" name="kec" >
+        <input type="text" id="status" class="input hidden" name="status" >
           <input type="text" id="koordinat" class="input hidden" size="45" name="geom">
       </div> 
       <div class="section">
@@ -85,7 +115,7 @@
         <h2 class="attribute">Indetitas Informan</h2>
         <p class="description">Identitas Anda digunakan untuk melengkapi laporan, dan Anda hanya akan dihubungi jika ada hal yang perlu dikonfirmasi atau ditidaklanjuti. Anda dapat langsung mengirim laporan jika tidak berkenana mengisi identitas informan.</p>
         <div class="section-checkbox">
-          <h1 class="attribute checkbox">Apakah Anda bersedia mengisi idensitas?</h1>
+          <h1 class="attribute checkbox">Apakah Anda bersedia mengisi identitas?</h1>
           <p class="onoff"><input type="checkbox" value="1" id="checkboxID"><label for="checkboxID"></label></p>
         </div>
       </div>
