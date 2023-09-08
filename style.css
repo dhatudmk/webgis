@@ -6,10 +6,11 @@
   padding: 0;
   /* scroll-margin-top: 100px; */
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
 }
 
 body{
+  /* margin-top: 50px; */
+  margin-top: 0;
   background-image: url(./data/background.jpg);
   background-position: center;
   background-size: cover;
@@ -17,36 +18,44 @@ body{
 }
 
 .navbar{
-  /* display: none; */
   width: 100%;
-  height: 40px;
+  height: 50px;
+  padding-left: 10px;
   background-color: #555;
   position: fixed;
   top: 0;
   z-index: 100;
+  display: inline;
+  display: block;
 }
 
-.navbar a {
+.navbar p, .menu{
   margin: 0;
   padding: 0;
-  float: left;
-  display: block;
-  color: #f2f2f2;
+  color: whitesmoke;
+  background-color: inherit;
   text-align: center;
-  padding: 0px 15px;
+  padding: 0px 10px;
   text-decoration: none;
   height: 100%;
-  line-height: 40px;
+  line-height: 50px;
+  display: inline-block;
+  box-sizing: border-box;
 }
+.navbar p{display: none;}
+.burgerMenu{
+  height: 100%;
+  line-height: 50px;
+  float: left;
+  color: whitesmoke;
+  padding: 0px 10px;
+  display: none;
+}
+.active{background-color:#29721f;}
 
-.navbar a:hover {
+.navbar a:hover{
   background: #ddd;
   color: black;
-}
-
-.topnav a.active {
-  background-color: #04AA6D;
-  color: whitesmoke;
 }
 
 #content{
@@ -54,7 +63,7 @@ body{
   margin: auto;
   background-color: rgba(174, 205, 149, 0.65);
   backdrop-filter: blur(5.8px);
-  margin-top: 40px;
+  margin-top: 50px;
   align-items: center;
   justify-content: center;
   /* border-radius: 10px; */
@@ -66,23 +75,24 @@ body{
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 101; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  /* padding-top: 100px; Location of the box */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
 }
 
 .modal-content {
   background-color: #aecc94;
   margin: auto;
-  padding: 10px;
+  margin-top: 100px;
+  padding: 10px 0px;
   border: 1px solid #888;
   width: 50%;
   font-size: 0.8em;
-  border-radius: 0.8em;
+  border-radius: 0.5em;
 }
 
 .modal-content .attribute{
@@ -103,16 +113,16 @@ body{
   cursor: pointer;
 }
 
-#formCari input{
-  margin-bottom: 15px;
+.head{
+  height: auto;
+  width: 100%;
+  text-align: center;
+  background-color: #07531c;
 }
-
-
 
 .title{
   font-size: 1.2rem;
   font-weight: normal;
-  background-color: #07531c;
   color: #fff;
   margin: auto;
   line-height: auto;
@@ -148,7 +158,7 @@ body{
   box-sizing: border-box;
   /* position: fixed; */
   position: sticky;
-  top: 40px;
+  top: 50px;
   z-index: 10;
 }
 
@@ -164,7 +174,7 @@ body{
 } */
 
 .text-indent{
-  text-indent: 50px;
+  text-indent: 35px;
 }
 
 .attribute{
@@ -236,11 +246,11 @@ li{
   background-color: whitesmoke;
   margin: auto;
   box-sizing: border-box;
-  align-items: center;
-  justify-content: center;
+  /* align-items: center; */
+  /* justify-content: center; */
   border-radius: 3px;
   width: 90%;
-  height: 520px;
+  height: 510px;
   font-size: 1.13em;
 }
 
@@ -248,20 +258,23 @@ li{
   padding: 5px 0px;
   text-align: center;
   font-weight: 500;
-  margin: 0px;
 }
 
 .map-container .coordinate{
-  padding: 5px 0px;
-  width: 100%;
-  margin: auto;
   display: inline-flex;
-  text-align: center;
+  gap: 10px;
+  padding: 5px 20px;
+  /* margin: auto; */
+  /* display: flex; */
+  align-items: center;
+  /* justify-content:flex-start; */
 }
 
 .input.hidden{
   display: none;
 }
+
+/* .hidden{display: none;} */
 
 input.file{
   display: none;
@@ -342,10 +355,6 @@ label.keterangan{
   font-weight: 500;
 }
 
-.section-identitas input{
-  margin-bottom: 15px;
-}
-
 textarea{
   background-color: whitesmoke;
   width: 90%;
@@ -359,6 +368,10 @@ textarea{
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.section-identitas input:not(:last-child){
+  margin-bottom: 15px;
+}
+
 .input{
   background-color: whitesmoke;
   height: 2.5em;
@@ -369,8 +382,7 @@ textarea{
   box-sizing: border-box;
   font-size: 1.1em;
   text-align: justify;
-  /* margin-top: 5px; */
-  margin-bottom: 5px;
+  /* margin-bottom: 5px; */
   padding: 10px;
   border-radius: 3px;
   border: 1px solid whitesmoke;
@@ -417,7 +429,8 @@ textarea{
   justify-content: center;
   align-items: center;
   color: whitesmoke;
-  height: 60px;
+  height: auto;
+  padding: 10px 0px;
 }
 
 .footer img{
@@ -427,111 +440,102 @@ textarea{
 
 
 /* css TOMBOL SEDIA */
-
 .section-checkbox{
   display: flex;
-  /* width: 90%; */
-  /* line-height: 30px; */
-  /* margin: auto; */
   align-items: center;
   justify-content: center;
   text-align: center;
   vertical-align: middle;
   gap: 10px;
-  /* border: 1px solid red; */
-  /* *vertical-align: auto; */
 } 
 
 .attribute.checkbox{
   display: inline;
   width: auto;
+  word-wrap: break-word;
   position: relative;
   margin: 0px;
-  
 }
 
-
-
-  .onoff {
-    /* margin-left: -27px; */
-    display: -moz-inline-stack;
-    display: inline-block;
-    vertical-align: middle;
-    vertical-align: auto;
-    zoom: 1;
-    display: inline;
-    position: relative;
-    cursor: pointer;
-    width: 80px;
-    height: 30px;
-    line-height: 30px;
-    font-size: 0.9em;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+.onoff {
+  /* margin-left: -27px; */
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  vertical-align: auto;
+  zoom: 1;
+  display: inline;
+  position: relative;
+  cursor: pointer;
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 0.9em;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .onoff label {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-    background: rgb(230, 220, 220);
-    border-radius: 5px;
-    font-weight: bold;
-    color: #FFF;
-    -webkit-transition: background 0.3s, text-indent 0.3s;
-    -moz-transition: background 0.3s, text-indent 0.3s;
-    -o-transition: background 0.3s, text-indent 0.3s;
-    transition: background 0.3s, text-indent 0.3s;
-    text-indent: 35px;
-    -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4) inset;
-    -moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4) inset;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4) inset;
-  }
-  .onoff label:after {
-    content: 'TIDAK';
-    display: block;
-    position: absolute;
-    top: 0px;
-    left: -3px;
-    width: 100%;
-    font-size: 12px;
-    color: gray;
-    text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.35);
-    z-index: 1;
-  }
-  .onoff label:before {
-    content: '';
-    width: 15px;
-    height: 24px;
-    border-radius: 3px;
-    background: #FFF;
-    position: absolute;
-    z-index: 2;
-    top: 3px;
-    left: 3px;
-    display: block;
-    -webkit-transition: left 0.3s;
-    -moz-transition: left 0.3s;
-    -o-transition: left 0.3s;
-    transition: left 0.3s;
-    -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
-    -moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
-  }
-  .onoff input:checked + label {
-    background: #378b2c;
-    text-indent: -48px;
-  }
-  .onoff input:checked + label:after {
-    content: 'YA';
-    color: #091707;
-  }
-  .onoff input:checked + label:before {
-    left: 62px;
-  }
-
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  background: rgb(230, 220, 220);
+  border-radius: 5px;
+  font-weight: bold;
+  color: #FFF;
+  -webkit-transition: background 0.3s, text-indent 0.3s;
+  -moz-transition: background 0.3s, text-indent 0.3s;
+  -o-transition: background 0.3s, text-indent 0.3s;
+  transition: background 0.3s, text-indent 0.3s;
+  text-indent: 35px;
+  -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4) inset;
+  -moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4) inset;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4) inset;
+}
+.onoff label:after {
+  content: 'TIDAK';
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: -3px;
+  width: 100%;
+  font-size: 12px;
+  color: gray;
+  text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.35);
+  z-index: 1;
+}
+.onoff label:before {
+  content: '';
+  width: 15px;
+  height: 24px;
+  border-radius: 3px;
+  background: #FFF;
+  position: absolute;
+  z-index: 2;
+  top: 3px;
+  left: 3px;
+  display: block;
+  -webkit-transition: left 0.3s;
+  -moz-transition: left 0.3s;
+  -o-transition: left 0.3s;
+  transition: left 0.3s;
+  -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+}
+.onoff input:checked + label {
+  background: #378b2c;
+  text-indent: -48px;
+}
+.onoff input:checked + label:after {
+  content: 'YA';
+  color: #091707;
+}
+.onoff input:checked + label:before {
+  left: 62px;
+}
 
 
 /* CSS unutk OpenLayers */
@@ -567,10 +571,31 @@ textarea{
   right: .5em;
 }
 
-@media (max-width: 600px){
-  #content {width: 100%; margin-top: 40px;}
+@media screen and (max-width: 600px){
+  #content {width: 100%;}
+  .navbar{width: 99%;}
+  .menu{display: none;}
+  .menu.responsive{display: block; width: 50%;}
+  .burgerMenu{display: inline-block;}
+  .navbar p{display: inline-block;}
   .title{
-    padding: 5px 30px; 
+    width: 75%;
+    word-wrap: break-word;
+    padding: 5px 0px; 
     font-size: 1.3em;
+  }
+  .text-indent{text-indent: 25px;}
+  .modal-content{
+    width: 100%;
+  }
+  .attribute.checkbox{
+    width: 50%;
+    word-wrap: break-word;
+  }
+  .map-container{width: 85%; height: 400px;}
+  .footer p{
+    /* padding-top: 10px; */
+    width: 60%;
+    word-wrap: break-word;
   }
 }

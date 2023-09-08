@@ -19,35 +19,83 @@ const peta = document.getElementById("mapContainer");
 const foto = document.getElementById("foto");
 const warning = document.getElementById("warning");
 const modalBox = document.getElementById('myModal');
+const navbars = document.querySelectorAll('a.menu');
+const burgerMenu = document.querySelector('a.burgerMenu');
+const warningHeight = warning.offsetHeight;
 
-console.log(validation);
-// console.log(warning.offsetHeight)
-const warningHeigh = warning.offsetHeight;
-let tinggi = warningHeigh+50
+// console.log
+
+let tinggi = warningHeight+60
 tinggi = tinggi+'px';
-// console.log('tinggi', tinggi);
-// console.log(window)
+
 let allElement = document.getElementsByTagName('*');
 for (let i = 0; i < allElement.length; i++) {
   let element = allElement[i];
   element.style.scrollMarginTop = tinggi;
 }
 
-// const search = document.getElementById('q');
-const search = document.getElementsByTagName("a")[2];
-search.addEventListener('click', () => {
-  console.log('apakah');
-  modalBox.style.display = 'block';
-  window.onclick = function(event) {
-    if(event.target == modalBox){
-      modalBox.style.display = 'none';
-    };
-  };
+// console.log(window)
+
+// burgerMenu.addEventListener('click', (e) => {
+//   console.log('burgerr')
+//   e.stopPropagation()
+//   navbars.forEach(navbar => {
+//     navbar.classList.toggle('responsive');
+//   });
+// })
+
+  // document.addEventListener('click', (e)=> {
+  //   if(e.target.closest('.menu')) return 
+  //     // navbars.forEach(navbar => {
+  //     // navbars.classList.toggle('responsive')
+  //   // });
+  //   console.log('jikaa')
+  // })
+
+burgerMenu.addEventListener('click', (e) => {
+  e.stopPropagation();
+  if(navbars[0].className === 'menu') {
+    navbars.forEach(navbar => {
+      navbar.className += ' responsive'
+    })
+  // if (navbars[0].className === 'responsive'){console.log('minggu')}
+    document.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (!e.target.closest('.menu')){
+        navbars.forEach(nav => {
+          nav.classList.remove('responsive');
+        });
+      }
+    })
+  } else {
+    navbars.forEach(navbar => {
+      navbar.className = 'menu';
+    });
+  }
+})
+
+navbars.forEach(navbar => {
+  navbar.addEventListener('click', (e) => {
+    e.stopPropagation()
+    navbars.forEach(nav => {
+      nav.classList.remove('responsive');
+    });
+  })
 });
 
-// document.querySelector('.close').addEventListener('click', () => {
-//   modalBox.style.display = 'none'
-// })
+navbars[4].addEventListener('click', (e) => {
+  e.stopPropagation()
+  console.log('apakah');
+  modalBox.style.display = 'block';
+  document.querySelector('.close').addEventListener('click', () => {
+    modalBox.style.display = 'none'
+  })
+  document.addEventListener('click', (event) => {
+    if (!event.target.closest('.modal-content')){
+      modalBox.style.display = 'none';
+    };
+  })
+});
 
 
 let radio2 = radioOption[2];

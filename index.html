@@ -9,27 +9,31 @@
     <title>Pelaporan Alih Fungsi Lahan</title>
   </head>
   <body>
+    <!-- Isi HTML -->
     <!-- Nav bar -->
     <div class="navbar">
-      <a href="">Masuk</a>
-      <a href="">Dashboard</a>
-      <a id="q">Cari</a>
+      <a class="burgerMenu material-icons">menu</a>
+      <p>Menu</p>
+      <a class="menu">Masuk</a>
+      <a class="menu">Dashboard</a>
+      <a class="menu active">Pelaporan</a>
+      <a class="menu" href="https://jstarlama.users.earthengine.app/view/monitoring-sawah" target="_blank">Monitoring NDVI</a>
+      <a class="menu search" id="q">Cari</a>
     </div>
-    <!-- Isi HTML -->
-
     <!-- Searching Modal Box  -->
     <div id="myModal" class="modal">
 
       <!-- Modal content -->
       <div class="modal-content">
         <!-- <span class="close">&times;</span> -->
-        <h2 class="attribute">Progres Pelaporan<span class="material-icons" style="font-size:1.5em;color:red;">close</span></h2>
+        <h2 class="attribute">Progres Pelaporan<span class="material-icons close" style="font-size:1.5em;color:red;">close</span></h2>
         <p class="description">Untuk mengetahui tindak lanjut pelaporan yang telah anda kirimkan sebelumnya, silahkan masukkan nama dan nomor yang sama ketika mengirimkan laporan</p>
         <form id="formCari">
           <label class="keterangan" for="pencarianNama">Nama pelapor</label>
           <input type="text" id="pencarianNama" name="namaCari" class="input" style="margin-bottom: 15px;">
           <label class="keterangan" for="pencarianNoHp">Nomor Handphone</label>
           <input type="text" id="pencarianNoHp" name="noHpCari" class="input">
+          <br>
           <input type="submit" class="submit">
         </form>
       </div>
@@ -42,12 +46,11 @@
         <p class="description text-warning">Terdapat beberapa pertanyaan wajib yang belum terisi. <br> Tekan di sini untuk menbuka setiap pertanyaan</p>
       </div>
       <!-- Judul dari sini -->
-      <div id="head">
+      <div class="head">
         <h1 class="title">Pelaporan Alih Fungsi Lahan Pertanian Sleman Barat</h1>
       </div>
       <div class="section">
-        <p class="description text-indent">Aplikasi ini merupakan sarana bagi masyarakat untuk berpartisipasi aktif melakukan pengendalian alih fungsi lahan dari pertanian ke non-pertanian.</p>
-        <p class="description text-indent">Informasi yang dikumpulkan akan menjadi masukan bagi instansi terkait dalam rangka mengambil kebijakan mengenai pemanfaatan ruang di wilayah Kabupaten Sleman.</p>
+        <p class="description text-indent">Aplikasi ini merupakan sarana bagi masyarakat untuk berpartisipasi aktif melakukan pengendalian alih fungsi lahan dari pertanian ke non-pertanian. Informasi yang dikumpulkan akan menjadi masukan bagi instansi terkait dalam rangka mengambil kebijakan mengenai pemanfaatan ruang di wilayah Kabupaten Sleman. Anda dapat melihat laporan-laporan yang telah tervalidasi pada menu <b>Dashboard</b>, analisis indeks kehijauan tanaman pada menu <b>Monitoring NDVI</b>, pencarian progres/tindak lanjut laporan pada menu <b>Cari</b>.</p>
       </div>
       <!-- Jenis Perubahan Lahan -->
     <!-- <form id="form1"> -->
@@ -83,7 +86,7 @@
           <p class="description">Peta Pola Ruang</p>
           <div id="map"></div>
           <div class="coordinate">
-            <i class="material-icons" style="font-size:21px; padding-left: 20px; padding-right: 20px;">location_on</i>
+            <i class="material-icons" style="font-size:21px;">location_on</i>
             <p id="coord" class="lat-long">Koordinat&emsp; Lat: &emsp; Lon: </p>
           </div>
         </div>
@@ -108,12 +111,12 @@
       </div>
       <div class="section">
         <h2 class="attribute">Keterangan Tambahan</h2>
-        <label class="keterangan" for="keterangan">Silahkan isi jika terdapat informasi lain yang ingin disampaikan.</label>
+        <label class="keterangan" for="keterangan" style="font-weight:inherit; text-align: justify; font-size: 1.13em;">Silahkan isi jika terdapat informasi lain yang ingin disampaikan.</label>
         <textarea name="ketTambahan" id="keterangan" cols="40" rows="10" wrap="hard" placeholder="Tempat menuliskan informasi tambahan... " ></textarea>
       </div>   
       <div class="section">
         <h2 class="attribute">Indetitas Informan</h2>
-        <p class="description">Identitas Anda digunakan untuk melengkapi laporan, dan Anda hanya akan dihubungi jika ada hal yang perlu dikonfirmasi atau ditidaklanjuti. Anda dapat langsung mengirim laporan jika tidak berkenana mengisi identitas informan.</p>
+        <p class="description">Identitas Anda digunakan untuk melengkapi laporan, Anda dapat langsung mengirim laporan jika tidak berkenan mengisi identitas informan. Nomor <i>Handphone</i> yang Anda isi akan dihubungi jika terdapat hal/informasi yang perlu dikonfirmasi atau ditidaklanjuti. Selain itu Anda dapat mengetahui progres/tindak lanjut dari laporan yang telah anda kirim pada menu cari dengan memasukkan nama dan nomor <i>Handphone</i> yang sama saat mengirimkan laporan.</p>
         <div class="section-checkbox">
           <h1 class="attribute checkbox">Apakah Anda bersedia mengisi identitas?</h1>
           <p class="onoff"><input type="checkbox" value="1" id="checkboxID"><label for="checkboxID"></label></p>
@@ -126,7 +129,6 @@
         <input class="input" type="tel" name="noHp" id="noHp" pattern="^(\+62|62|0)8[1-9][0-9]{6,9}$" placeholder="08xxxxxxx" disabled>
         <label class="keterangan" for="alamat">Alamat Anda:</label>
         <input class="input" type="text" name="alamatInformat" id="alamat" placeholder="Kalurahan, Dusun" disabled>
-        <br><br>
       </div>
       <div class="section">
         <input class="submit" type="submit">
